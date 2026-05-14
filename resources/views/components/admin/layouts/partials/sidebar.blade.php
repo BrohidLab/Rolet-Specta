@@ -20,11 +20,11 @@
             <div>
 
                 <h1 class="text-base font-black text-gray-800 leading-none">
-                    AdminPro
+                    ROLET SPECTA
                 </h1>
 
                 <p class="text-xs text-gray-400 mt-1">
-                    Dashboard Panel
+                    Dashboard Admin
                 </p>
 
             </div>
@@ -37,8 +37,8 @@
     <div class="p-4 space-y-1.5">
 
         <!-- ACTIVE -->
-        <a href="#"
-            class="flex items-center gap-3 h-11 px-4 rounded-xl bg-blue-50 text-blue-600 font-medium text-sm">
+        <a href="{{ route('dashboard') }}"
+            class="flex items-center gap-3 h-11 px-4 rounded-xl {{ request()->routeIs('dashboard') ? 'bg-blue-50 text-blue-600' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }} font-medium text-sm">
 
             <span class="material-symbols-rounded text-[20px]">
                 dashboard
@@ -49,14 +49,14 @@
         </a>
 
         <!-- ITEM -->
-        <a href="#"
-            class="flex items-center gap-3 h-11 px-4 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition text-sm font-medium">
+        <a href="{{ route('gallery.index') }}"
+            class="flex items-center gap-3 h-11 px-4 rounded-xl {{ request()->routeIs('gallery.*') ? 'bg-blue-50 text-blue-600' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }}  transition text-sm font-medium">
 
             <span class="material-symbols-rounded text-[20px]">
-                group
+                Album
             </span>
 
-            Users
+            Gallery
 
         </a>
 
@@ -73,14 +73,14 @@
         </a>
 
         <!-- ITEM -->
-        <a href="#"
-            class="flex items-center gap-3 h-11 px-4 rounded-xl text-gray-500 hover:bg-gray-50 hover:text-gray-800 transition text-sm font-medium">
+        <a href="{{ route('menu.index') }}"
+            class="flex items-center gap-3 h-11 px-4 rounded-xl {{ request()->routeIs('menu.*') ? 'bg-blue-50 text-blue-600' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-800' }} transition text-sm font-medium">
 
             <span class="material-symbols-rounded text-[20px]">
                 payments
             </span>
 
-            Transactions
+            List Menu
 
         </a>
 

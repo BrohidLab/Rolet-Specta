@@ -47,7 +47,7 @@
 
                 <!-- HEADER -->
                 @include('components.admin.layouts.partials.navbar')
-
+                <x-admin.alert />
                 <!-- MAIN CONTENT -->
                 <main class="mt-5 p-6">
                     @yield('content')
@@ -62,6 +62,7 @@
     <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"></div>
 
     @include('components.admin.layouts.partials.script')
+    @stack('script')
 
 </body>
 

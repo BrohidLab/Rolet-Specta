@@ -29,12 +29,12 @@
 
             <div class="hidden sm:block text-left">
 
-                <h3 class="text-sm font-semibold text-gray-800 leading-none">
-                    Administrator
+                <h3 class="text-sm capitalize font-semibold text-gray-800 leading-none">
+                    {{ Auth::user()?->username }}
                 </h3>
 
                 <p class="text-xs text-gray-400 mt-1">
-                    Super Admin
+                    Selamat Datang
                 </p>
 
             </div>
@@ -53,11 +53,11 @@
             <div class="p-4 border-b border-gray-100">
 
                 <h3 class="font-semibold text-gray-800">
-                    Administrator
+                    {{ Auth::user()?->username }}
                 </h3>
 
                 <p class="text-sm text-gray-400 mt-1">
-                    admin@gmail.com
+                    Selamat Datang
                 </p>
 
             </div>
