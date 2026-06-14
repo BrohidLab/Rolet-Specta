@@ -477,12 +477,12 @@
 
 
 
-                <button
+                <a href="{{ route('gallery') }}"
                     class="px-8 py-4 rounded-full bg-red-500 text-white font-bold hover:scale-105 transition duration-300 shadow-2xl shadow-red-500/30 w-fit">
 
                     Explore Gallery Lainnya
 
-                </button>
+                </a>
 
             </div>
 
@@ -540,12 +540,12 @@
 
 
 
-                <button
+                <a href="{{ route('menu') }}"
                     class="px-8 py-4 rounded-full bg-red-500 text-white font-bold hover:scale-105 transition duration-300 shadow-2xl shadow-red-500/30 w-fit">
 
                     Explore Menu Lainnya
 
-                </button>
+                </a>
 
             </div>
 
