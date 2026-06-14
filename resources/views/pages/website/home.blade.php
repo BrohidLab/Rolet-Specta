@@ -260,105 +260,7 @@
 
 
     {{-- NAVBAR --}}
-    <nav class="fixed top-0 left-0 w-full z-50 border-b border-white/10 backdrop-blur-xl bg-black/20">
-
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
-
-            <h1 class="text-2xl md:text-3xl font-black tracking-[6px] gradient-text">
-
-                ROLET SPECTA
-
-            </h1>
-
-
-
-            {{-- DESKTOP MENU --}}
-            <div class="hidden md:flex items-center gap-10 text-sm tracking-wide text-gray-200">
-
-                <a href="#home" class="hover:text-red-400 transition duration-300">
-                    Beranda
-                </a>
-
-                <a href="#about" class="hover:text-red-400 transition duration-300">
-                    Tentang
-                </a>
-
-                <a href="#gallery" class="hover:text-red-400 transition duration-300">
-                    Gallery
-                </a>
-
-                <a href="#menu" class="hover:text-red-400 transition duration-300">
-                    Menu
-                </a>
-
-                <a href="#contact" class="hover:text-red-400 transition duration-300">
-                    Kontak
-                </a>
-
-            </div>
-
-
-
-            {{-- BUTTON --}}
-            <button
-                class="hidden md:block px-6 py-3 rounded-full bg-red-500 text-white font-bold hover:scale-105 transition duration-300 shadow-2xl shadow-red-500/30">
-
-                Reservasi
-
-            </button>
-
-
-
-            {{-- MOBILE BUTTON --}}
-            <button id="menuBtn" class="md:hidden text-3xl text-white">
-
-                ☰
-
-            </button>
-
-        </div>
-
-
-
-        {{-- MOBILE MENU --}}
-        <div id="mobileMenu" class="hidden md:hidden px-6 pb-6 backdrop-blur-xl border-t border-white/10">
-
-            <div class="flex flex-col gap-5 pt-5 text-gray-200">
-
-                <a href="#home" class="hover:text-red-400 transition duration-300">
-                    Beranda
-                </a>
-
-                <a href="#about" class="hover:text-red-400 transition duration-300">
-                    Tentang
-                </a>
-
-                <a href="#gallery" class="hover:text-red-400 transition duration-300">
-                    Gallery
-                </a>
-
-                <a href="#menu" class="hover:text-red-400 transition duration-300">
-                    Menu
-                </a>
-
-                <a href="#contact" class="hover:text-red-400 transition duration-300">
-                    Kontak
-                </a>
-
-                <button class="mt-3 px-6 py-3 rounded-full bg-red-500 text-white font-bold shadow-lg shadow-red-500/30">
-
-                    Reservasi
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-
-
+    @include('components.website.layouts.partial.navigation')
 
 
 
@@ -419,40 +321,6 @@
                         </button>
                     </div>
 
-                    {{-- STATS --}}
-                    <div class="mt-14 grid grid-cols-3 gap-5 max-w-xl">
-
-                        <div class="glass rounded-3xl py-5 md:p-5 text-center">
-
-                            <h2 class="text-xl md:text-3xl font-black text-red-400">
-                                12K+
-                            </h2>
-
-                            <p class="text-xs md:text-sm text-gray-300 mt-2">
-                                Pengunjung
-                            </p>
-
-                        </div>
-
-
-
-                        <div class="glass rounded-3xl p-5 text-center">
-                            <h2 class="text-xl md:text-3xl font-black text-red-400">
-                                4.2
-                            </h2>
-                            <p class="text-xs md:text-sm text-gray-300 mt-2">
-                                Rating
-                            </p>
-                        </div>
-                        <div class="glass rounded-3xl p-5 text-center">
-                            <h2 class="text-xl md:text-3xl font-black text-red-400">
-                                24/7
-                            </h2>
-                            <p class="text-xs md:text-sm text-gray-300 mt-2">
-                                Buka
-                            </p>
-                        </div>
-                    </div>
                 </div>
                 {{-- RIGHT --}}
                 <div class="relative hidden lg:flex justify-center floating">
@@ -888,14 +756,6 @@
                     </div>
 
                 </div>
-
-
-
-
-
-
-
-
                 {{-- CARD --}}
                 <div
                     class="group relative overflow-hidden rounded-[35px] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 hover:-translate-y-2 transition duration-500">
@@ -926,14 +786,6 @@
                     </div>
 
                 </div>
-
-
-
-
-
-
-
-
                 {{-- CARD --}}
                 <div
                     class="group relative overflow-hidden rounded-[35px] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 hover:-translate-y-2 transition duration-500">
@@ -964,14 +816,6 @@
                     </div>
 
                 </div>
-
-
-
-
-
-
-
-
                 {{-- SOCIAL --}}
                 <div
                     class="group relative overflow-hidden rounded-[35px] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 hover:-translate-y-2 transition duration-500">
