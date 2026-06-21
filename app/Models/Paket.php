@@ -2,21 +2,17 @@
 
 namespace App\Models;
 
-use App\Observers\GalleryOserver;
+use App\Observers\PaketObserver;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class Paket extends Model
 {
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'title',
-        'alt',
-        'type',
-        'id_category',
-        'image',
-        'video'
+        'name',
+        'status'
     ];
 
     protected $casts = [
@@ -25,11 +21,6 @@ class Gallery extends Model
     public static function boot(): void
     {
         parent::boot();
-        self::observe(GalleryOserver::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(CategoryGallery::class);
+        self::observe(PaketObserver::class);
     }
 }

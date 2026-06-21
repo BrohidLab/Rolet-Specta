@@ -46,12 +46,12 @@
                     </p>
 
                     <div class="mt-8 flex gap-4">
-                        <a href="#menu"
+                        <a href="{{ route('menu') }}"
                             class="px-6 py-3 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-700 transition">
                             Lihat Menu
                         </a>
 
-                        <a href="#contact"
+                        <a href="{{ route('contact-us') }}"
                             class="px-6 py-3 border border-red-600 text-red-600 rounded-xl font-semibold hover:bg-red-50 transition">
                             Hubungi Kami
                         </a>

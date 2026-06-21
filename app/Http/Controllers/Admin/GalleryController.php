@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CategoryGallery;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,26 +12,27 @@ use Illuminate\Support\Facades\Storage;
 class GalleryController extends Controller
 {
     public function index(Request $request)
-{
-    $search = $request->search;
+    {
+        $search = $request->search;
 
-    $galleries = Gallery::when($search, function ($query) use ($search) {
+        $galleries = Gallery::when($search, function ($query) use ($search) {
 
             $query->where('title', 'like', "%{$search}%")
                 ->orWhere('alt', 'like', "%{$search}%")
                 ->orWhere('type', 'like', "%{$search}%");
-
         })
-        ->latest()
-        ->paginate(12)
-        ->withQueryString();
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
 
 
         return view('pages.admin.pages.gallery.index', compact('galleries'));
     }
 
-    public function create() {
-        return view('pages.admin.pages.gallery.create');
+    public function create()
+    {
+        $categories = CategoryGallery::latest()->get();
+        return view('pages.admin.pages.gallery.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -40,7 +42,7 @@ class GalleryController extends Controller
             'title' => 'required|string|max:255',
             'alt'   => 'required|string',
             'type'  => 'required|in:image,video',
-
+            'id_category' => 'required',
             'image' => 'required_if:type,image|nullable|image|mimes:jpg,jpeg,png,webp|max:20480',
 
             'video' => 'required_if:type,video|nullable|mimes:mp4,mov,avi|max:20480',
@@ -87,6 +89,7 @@ class GalleryController extends Controller
                 'title' => $request->title,
                 'alt'   => $request->alt,
                 'type'  => $request->type,
+                'id_category' => $request->id_category,
                 'image' => $imagePath,
                 'video' => $videoPath,
             ]);
@@ -122,25 +125,27 @@ class GalleryController extends Controller
 
     public function edit(Gallery $gallery)
     {
-        return view('pages.admin.pages.gallery.edit', compact('gallery'));
+        $categories = CategoryGallery::latest()->get();
+        return view('pages.admin.pages.gallery.edit', compact('gallery', 'categories'));
     }
 
     public function update(Request $request, Gallery $gallery)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'alt'   => 'required|string',
-            'type'  => 'required|in:image,video',
 
-            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:20480',
-
-            'video' => 'nullable|mimes:mp4,mov,avi|max:20480',
-        ]);
 
         DB::beginTransaction();
 
         try {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'alt'   => 'required|string',
+                'id_category' => 'required',
+                'type'  => 'required|in:image,video',
 
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:20480',
+
+                'video' => 'nullable|mimes:mp4,mov,avi|max:20480',
+            ]);
             /**
              * Default old data
              */
@@ -222,6 +227,7 @@ class GalleryController extends Controller
                 'title' => $request->title,
                 'alt'   => $request->alt,
                 'type'  => $request->type,
+                'id_category' => $request->id_category,
                 'image' => $imagePath,
                 'video' => $videoPath,
             ]);
@@ -231,7 +237,6 @@ class GalleryController extends Controller
             return redirect()
                 ->route('gallery.index')
                 ->with('success', 'Gallery updated successfully.');
-
         } catch (\Exception $e) {
 
             DB::rollBack();
@@ -243,7 +248,8 @@ class GalleryController extends Controller
         }
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         try {
             $gallery = Gallery::findOrFail($id);
             $gallery->delete();

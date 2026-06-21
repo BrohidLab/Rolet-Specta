@@ -67,6 +67,28 @@
 
                         </div>
 
+                        <div class="mt-5">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">
+                                Category
+                            </label>
+
+                            <select name="id_category"
+                                class="h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 text-sm text-slate-700 outline-none transition focus:border-slate-400 focus:ring-4 focus:ring-slate-100">
+                                <option value="">-- Pilih Category --</option>
+
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ old('id_category', $gallery->id_category ?? '') == $category->id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            @error('category_id')
+                                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <!-- Type -->
                         <div class="mt-5">
 

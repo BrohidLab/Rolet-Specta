@@ -38,12 +38,12 @@
 
 
         {{-- BUTTON --}}
-        <button
+        <a href="https://wa.me/6281234819907" target="_blank"
             class="hidden md:block px-6 py-3 rounded-full bg-red-500 text-white font-bold hover:scale-105 transition duration-300 shadow-2xl shadow-red-500/30">
 
             Reservasi
 
-        </button>
+        </a>
         {{-- MOBILE BUTTON --}}
         <button id="menuBtn" class="md:hidden text-3xl text-white">
 
@@ -73,9 +73,10 @@
             <a href="{{ route('contact-us') }}" class="hover:text-red-400 transition duration-300">
                 Kontak
             </a>
-            <button class="mt-3 px-6 py-3 rounded-full bg-red-500 text-white font-bold shadow-lg shadow-red-500/30">
+            <a href="https://wa.me/6281234819907" target="_blank"
+                class="mt-3 px-6 py-3 rounded-full bg-red-500 text-white font-bold shadow-lg shadow-red-500/30">
                 Reservasi
-            </button>
+            </a>
         </div>
     </div>
 </nav>

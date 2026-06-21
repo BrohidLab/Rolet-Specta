@@ -152,9 +152,9 @@
                                     WhatsApp
                                 </h4>
 
-                                <a href="https://wa.me/628123456789" target="_blank"
+                                <a href="https://wa.me/6281234819907" target="_blank"
                                     class="text-red-600 hover:text-red-700">
-                                    +62 812-3456-789
+                                    +62 812-3481-9907
                                 </a>
                             </div>
 

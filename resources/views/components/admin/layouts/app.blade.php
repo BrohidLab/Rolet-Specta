@@ -28,6 +28,8 @@
             overflow-x: hidden;
         }
     </style>
+
+    @stack('style')
 </head>
 
 <!-- layouts/app.blade.php -->

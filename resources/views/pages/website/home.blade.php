@@ -311,14 +311,14 @@
 
                     <div class="mt-10 flex flex-wrap gap-5">
 
-                        <button
+                        <a href="{{ route('menu') }}"
                             class="px-8 py-4 rounded-full bg-red-500 text-white font-bold hover:scale-105 transition duration-300 shadow-2xl shadow-red-500/30">
                             Jelajahi Sekarang
-                        </button>
-                        <button
+                        </a>
+                        <a href="{{ route('gallery') }}"
                             class="px-8 py-4 rounded-full border border-white/20 glass hover:bg-white/10 transition duration-300">
                             Lihat Gallery
-                        </button>
+                        </a>
                     </div>
 
                 </div>
@@ -642,14 +642,14 @@
                     {{-- BUTTON --}}
                     <div class="mt-12 flex flex-wrap gap-5">
 
-                        <a href="#"
+                        <a href="https://wa.me/6281234819907" target="_blank"
                             class="px-10 py-5 rounded-2xl bg-red-500 hover:bg-red-600 text-white font-bold transition duration-300 shadow-2xl shadow-red-500/30 hover:scale-105">
 
                             Reservasi Sekarang
 
                         </a>
 
-                        <a href="#gallery"
+                        <a href="{{ route('gallery') }}"
                             class="px-10 py-5 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl hover:bg-white/20 transition duration-300">
 
                             Explore Gallery
@@ -773,15 +773,16 @@
 
                         </div>
 
-                        <h3 class="mt-8 text-2xl font-bold">
+                        <h3 class="mt-8 text-2xl font-bold mb-4">
                             Telepon
                         </h3>
 
-                        <p class="mt-4 text-gray-400 leading-relaxed">
+                        <a href="https://wa.me/6281234819907" target="_blank"
+                            class="mt-4 text-gray-400 leading-relaxed">
 
                             +62 812 3481 9907
 
-                        </p>
+                        </a>
 
                     </div>
 

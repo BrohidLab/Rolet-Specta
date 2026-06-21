@@ -24,24 +24,27 @@
 
                 @foreach ($galleries as $gallery)
                     <div @click="openModal(
-                        '{{ $gallery->type }}',
-                        '{{ asset('storage/' . $gallery->image) }}'
-                    )"
+                            '{{ $gallery->type }}',
+                            '{{ $gallery->type == 'image' ? asset('storage/' . $gallery->image) : asset('storage/' . $gallery->video) }}',
+                            '{{ $gallery->alt }}'
+                        )"
                         class="relative overflow-hidden rounded-2xl cursor-pointer group shadow-md bg-white">
 
                         @if ($gallery->type == 'image')
                             <img src="{{ asset('storage/' . $gallery->image) }}"
-                                class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                                class="w-full h-64 object-cover transition duration-500 group-hover:scale-110"
+                                alt="{{ $gallery->alt }}">
                         @else
                             <div class="relative">
 
                                 <video class="w-full h-64 object-cover" muted preload="metadata">
-                                    <source src="{{ asset('storage/' . $gallery->image) }}">
+                                    <source src="{{ asset('storage/' . $gallery->video) }}">
                                 </video>
 
                                 <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
 
-                                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center">
+                                    <div
+                                        class="w-14 h-14 bg-white text-black rounded-full flex items-center justify-center">
                                         ▶
                                     </div>
 
@@ -82,14 +85,16 @@
                 </button>
 
                 <template x-if="type === 'image'">
-
-                    <img :src="src" class="w-full rounded-xl max-h-[80vh] object-contain">
-
+                    <div class="w-full flex items-center justify-center">
+                        <img :src="src"
+                            class="w-auto rounded-md max-h-[80vh] object-contain border-[10px] border-white"
+                            :alt="alt">
+                    </div>
                 </template>
 
                 <template x-if="type === 'video'">
 
-                    <video controls autoplay class="w-full rounded-xl max-h-[90vh]">
+                    <video controls autoplay class="w-full rounded-xl max-h-[80vh]">
                         <source :src="src">
                     </video>
 
@@ -110,10 +115,11 @@
                 type: '',
                 src: '',
 
-                openModal(type, src) {
+                openModal(type, src, alt) {
                     this.type = type;
                     this.src = src;
                     this.show = true;
+                    this.alt = alt;
                     document.body.style.overflow = 'hidden';
                 },
 

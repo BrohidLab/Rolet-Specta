@@ -2,21 +2,16 @@
 
 namespace App\Models;
 
-use App\Observers\GalleryOserver;
+use App\Observers\CategoryGalleryObserver;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class CategoryGallery extends Model
 {
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'title',
-        'alt',
-        'type',
-        'id_category',
-        'image',
-        'video'
+        'name'
     ];
 
     protected $casts = [
@@ -25,11 +20,11 @@ class Gallery extends Model
     public static function boot(): void
     {
         parent::boot();
-        self::observe(GalleryOserver::class);
+        self::observe(CategoryGalleryObserver::class);
     }
 
-    public function category()
+    public function galleries()
     {
-        return $this->belongsTo(CategoryGallery::class);
+        return $this->hasMany(Gallery::class);
     }
 }
